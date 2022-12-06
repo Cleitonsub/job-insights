@@ -5,12 +5,12 @@ import csv
 
 @lru_cache
 def read(path: str) -> List[Dict]:
-    with open(path, encoding='utf8') as csvfile:
-        read_csvfile = csv.DictReader(csvfile)
-        data_csvfile = []
-        for data in read_csvfile:
-            data_csvfile.append(data)
-    return data_csvfile
+    with open(path, mode="r", encoding="utf-8") as csvfile:
+        read_csvfile = csv.DictReader(csvfile, delimiter=",", quotechar='"')
+        # data_csvfile = []
+        # for data in read_csvfile:
+        #     data_csvfile.append(data)
+        return [data for data in read_csvfile]  # list comprehension
 # retorna todo o arquivo 'formatado' []
 
 
