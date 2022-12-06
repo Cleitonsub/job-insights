@@ -11,6 +11,7 @@ def read(path: str) -> List[Dict]:
         for data in read_csvfile:
             data_csvfile.append(data)
     return data_csvfile
+# retorna todo o arquivo 'formatado' []
 
 
 def get_unique_job_types(path: str) -> List[str]:
@@ -19,6 +20,8 @@ def get_unique_job_types(path: str) -> List[str]:
     for job in jobs_list:
         job_types.add(job['job_type'])
     return job_types
+# retorna {'OTHER', 'TEMPORARY', 'PART_TIME', 'FULL_TIME',
+# 'CONTRACTOR', 'INTERN'}
 
 
 def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
