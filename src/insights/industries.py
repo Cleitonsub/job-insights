@@ -4,10 +4,10 @@ from .jobs import read
 
 def get_unique_industries(path: str) -> List[str]:
     csvfile = read(path)
-    industries = set()
-    for industry in csvfile:
-        industries.add(industry['industry'])
-    return industries.difference({''})
+    # industries = set()
+    # for industry in csvfile:
+    #     industries.add(industry['industry'])
+    return {industry['industry'] for industry in csvfile}.difference({''})
 # retorna {'Retail', 'Business Services', 'Non-Profit', 'Health Care' e mais
 
 
