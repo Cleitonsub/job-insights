@@ -18,11 +18,10 @@ def get_max_salary(path: str) -> int:
 
 def get_min_salary(path: str) -> int:
     csvfile = read(path)
-    salaries = set()
-    for salary in csvfile:
-        if salary['min_salary'] != '' and salary['min_salary'].isdigit():
-            salaries.add(int(salary['min_salary']))
-    return min(salaries)
+    return min(
+        int(salary['min_salary']) for salary in csvfile
+        if salary['min_salary'] != '' and salary['min_salary'].isdigit()
+    )
 # test = get_min_salary("data/jobs.csv")
 # print(test) # retorna 19857
 
