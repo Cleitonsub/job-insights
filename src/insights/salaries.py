@@ -4,11 +4,14 @@ from .jobs import read
 
 def get_max_salary(path: str) -> int:
     csvfile = read(path)
-    salaries = set()
-    for salary in csvfile:
-        if salary['max_salary'] != '' and salary['max_salary'].isdigit():
-            salaries.add(int(salary['max_salary']))
-    return max(salaries)
+    # salaries = set()
+    # for salary in csvfile:
+    #     if salary['max_salary'] != '' and salary['max_salary'].isdigit():
+    #         salaries.add(int(salary['max_salary']))
+    return max(
+        int(salary['max_salary']) for salary in csvfile
+        if salary['max_salary'] != '' and salary['max_salary'].isdigit()
+    )
 # test = get_max_salary("data/jobs.csv")
 # print(test) # retorna 383416
 
