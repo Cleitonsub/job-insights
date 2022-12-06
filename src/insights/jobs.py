@@ -16,7 +16,7 @@ def read(path: str) -> List[Dict]:
     list
         List of rows as dicts
     """
-    raise NotImplementedError
+    pass
 
 
 def get_unique_job_types(path: str) -> List[str]:
