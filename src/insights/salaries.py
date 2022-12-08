@@ -28,8 +28,10 @@ def get_min_salary(path: str) -> int:
 
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
     if (
-        ('min_salary' or 'max_salary') not in job
-        or not (str(job['min_salary']) or str(job['max_salary'])).isdigit()
+        'min_salary' not in job
+        or 'max_salary' not in job
+        or not str(job['min_salary']).isdigit()
+        or not str(job['max_salary']).isdigit()
         or int(job['min_salary']) > int(job['max_salary'])
         or not str(salary).lstrip('-').isdigit()
     ):
