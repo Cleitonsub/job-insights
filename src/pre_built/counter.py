@@ -3,3 +3,5 @@ def count_ocurrences(path: str, word: str) -> int:
     read_data = file.read()
     word_count = read_data.lower().count(word.lower())
     return word_count
+# test = count_ocurrences('data/jobs.csv', 'salary')
+# print(test)
